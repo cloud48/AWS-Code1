@@ -95,9 +95,6 @@ resource "aws_instance" "instance" {
   ami                         = "ami-0c6a6b0e75b2b6ce7"
   instance_type               = "t2.micro"
    key_name                    = "linux"
-   #vpc_security_group_ids      = ["sg-0884ac39d92e1fffd"]
-   #vpc_security_group_name     = "linuxSG"
-   #aws_security_group          = ["sg-0884ac39d92e1fffd"]
    vpc_security_group_ids = [aws_security_group.linuxSG.id]
   subnet_id                   = aws_subnet.pubsubnet.id
   associate_public_ip_address = true
